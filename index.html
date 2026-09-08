@@ -3,14 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>East Niles Residences — Seeking a JV Partner</title>
-  <!--
-    East Niles Residences — single-page site for review
-    Lead ask: developer + sponsor partner to explore a JV (open to other structures)
-    Video 1: https://youtu.be/7GIXb2sUaRE  (LIHTC Bakersfield Project)
-    Video 2: https://youtu.be/tVPKSYXb_oA  (Location Location Location)
-    Brochure: East_Niles_Residences_Brochure.pdf
-  -->
+  <title>Bakersfield LIHTC Project</title>
   <style>
     :root {
       --slate: #1B2A32;
@@ -60,11 +53,10 @@
     .btn-gold:hover { background: #d4b584; }
     .btn-ghost { background: transparent; color: white; border: 1px solid rgba(255,255,255,.45); }
     .btn-ghost:hover { border-color: var(--sand); color: var(--sand); }
-    .btn-slate { background: var(--slate); color: var(--sand); }
 
     .stats {
       background: var(--slate); color: white;
-      display: grid; grid-template-columns: repeat(5, 1fr);
+      display: grid; grid-template-columns: repeat(4, 1fr);
       border-top: 3px solid var(--sand);
     }
     .stats div { padding: 28px 12px; text-align: center; border-right: 1px solid #3A4E58; }
@@ -79,11 +71,11 @@
     p.lead { font-size: 17px; line-height: 1.65; color: var(--muted); max-width: 760px; }
 
     .partner { background: var(--cream); }
-    .partner-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; margin-top: 36px; }
+    .partner-stack { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 36px; max-width: 860px; }
     .p-card { background: white; padding: 28px 26px; box-shadow: 0 10px 30px rgba(27,42,50,.08); }
     .p-card.lead { background: var(--slate); color: #fff; }
     .p-card .tag { color: var(--sand); font-size: 11px; letter-spacing: .14em; font-weight: 700; }
-    .p-card h3 { font-family: Georgia, serif; font-size: 22px; margin: 8px 0 10px; }
+    .p-card h3 { font-family: Georgia, serif; font-size: 24px; margin: 8px 0 10px; font-weight: 400; color: var(--slate); }
     .p-card.lead h3 { color: #fff; }
     .p-card p { font-size: 15px; line-height: 1.55; color: var(--muted); }
     .p-card.lead p { color: #E8D5B5; }
@@ -92,7 +84,7 @@
     .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
     .card { background: white; box-shadow: 0 10px 30px rgba(27,42,50,.08); }
     .thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #111; }
-    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
     .thumb iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .play {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -105,8 +97,7 @@
       font-size: 22px; padding-left: 4px;
     }
     .card .meta { padding: 20px 22px 24px; }
-    .card .meta .tag { color: var(--sand-dk); font-size: 11px; letter-spacing: .14em; font-weight: 700; }
-    .card .meta h3 { font-family: Georgia, serif; font-size: 22px; color: var(--slate); margin: 6px 0 8px; }
+    .card .meta h3 { font-family: Georgia, serif; font-size: 22px; color: var(--slate); margin: 0 0 8px; }
     .card .meta p { font-size: 14px; line-height: 1.5; color: var(--muted); }
 
     .brochure { position: relative; min-height: 420px; color: white; overflow: hidden; padding: 0; }
@@ -117,15 +108,15 @@
     .brochure p { color: #E8D5B5; font-size: 17px; line-height: 1.6; max-width: 560px; margin-bottom: 24px; }
 
     .contact { background: var(--ivory); }
-    form { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 760px; }
-    form .full { grid-column: 1 / -1; }
-    label { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
-    input, textarea, select {
-      width: 100%; border: 1px solid #D9CBB3; background: white;
-      padding: 12px 14px; font-size: 15px; color: var(--body); font-family: inherit;
+    .jotform-wrap {
+      margin-top: 28px;
+      background: white;
+      border: 1px solid #E6D9C4;
+      box-shadow: 0 10px 30px rgba(27,42,50,.08);
+      padding: 12px 8px 24px;
+      min-height: 520px;
+      overflow: hidden;
     }
-    textarea { min-height: 120px; resize: vertical; }
-    .note { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
 
     footer {
       background: var(--slate); color: #9aa6ad;
@@ -134,22 +125,19 @@
     }
     footer strong { color: var(--sand); font-weight: 700; }
 
-    @media (max-width: 900px) {
-      .partner-grid { grid-template-columns: 1fr; }
-    }
     @media (max-width: 800px) {
       .nav { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
       .hero { height: 620px; }
       .hero h1 { font-size: 36px; }
       .hero .copy, section, .brochure .inner, footer { padding-left: 20px; padding-right: 20px; }
       .stats { grid-template-columns: 1fr 1fr; }
-      .video-grid, form { grid-template-columns: 1fr; }
+      .video-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <nav class="nav">
-    <a class="brand" href="#top">EAST NILES RESIDENCES</a>
+    <a class="brand" href="#top">BAKERSFIELD LIHTC PROJECT</a>
     <ul>
       <li><a href="#partner">Partner</a></li>
       <li><a href="#film">The Film</a></li>
@@ -160,23 +148,22 @@
   </nav>
 
   <header class="hero" id="top">
-    <img src="img/street.jpg" alt="East Niles streetscape" />
+    <img src="street.jpg" alt="Project streetscape" />
     <div class="veil"></div>
     <div class="copy">
-      <div class="kicker">Seeking a developer & sponsor partner · Bakersfield, CA 93306</div>
-      <h1>East Niles Residences</h1>
-      <div class="sub">430 homes on 15.16 acres · Three phases · Ministerial SB 423 path</div>
-      <p class="ask">We are looking for a developer and sponsor partner to explore a joint venture. If you have a better idea for how we work together, we are open to that conversation.</p>
+      <div class="kicker">Seeking a developer &amp; sponsor partner · Bakersfield, CA</div>
+      <h1>Bakersfield LIHTC Project</h1>
+      <div class="sub">15.16 acres · Three phases · Ministerial SB 423 path</div>
+      <p class="ask">We are looking for a developer and sponsor partner to tap the potential of this land for LIHTC housing.</p>
       <div class="btns">
-        <a class="btn btn-gold" href="#contact">Explore a joint venture</a>
-        <a class="btn btn-ghost" href="#film">Watch the project film</a>
-        <a class="btn btn-ghost" href="East_Niles_Residences_Brochure.pdf" download>Download the brochure</a>
+        <a class="btn btn-gold" href="#contact">Working together</a>
+        <a class="btn btn-ghost" href="#film">Watch the project concept</a>
+        <a class="btn btn-ghost" href="Bakersfield_LIHTC_Project.pdf" download>Download the brochure</a>
       </div>
     </div>
   </header>
 
   <div class="stats">
-    <div><strong>430</strong><span>HOMES</span></div>
     <div><strong>15.16</strong><span>ACRES</span></div>
     <div><strong>3</strong><span>PHASES</span></div>
     <div><strong>SB 423</strong><span>MINISTERIAL</span></div>
@@ -185,25 +172,19 @@
 
   <section class="partner" id="partner">
     <div class="wrap">
-      <div class="kicker">The ask</div>
-      <h2>Looking for a JV partner</h2>
+      <h2>Working Together</h2>
       <div class="rule"></div>
-      <p class="lead">The site, the ministerial path, and the 4% LIHTC + QCT stack are assembled. What we want now is a developer and sponsor partner willing to sit down and explore a joint venture on Phase 1 — 145 homes, $64.53M TDC. Other structures are welcome if they get the first phase built.</p>
-      <div class="partner-grid">
+      <p class="lead">The site, the ministerial path, and the 4% LIHTC + QCT stack are assembled. What we want now is a developer and sponsor partner willing to explore a joint venture on Phase 1 — 145 homes, $64.53M TDC. Other structures are welcome if they get the first phase built.</p>
+      <div class="partner-stack">
         <article class="p-card lead">
           <div class="tag">PRIMARY INTEREST</div>
-          <h3>Joint venture</h3>
-          <p>A developer and sponsor partner who will explore a JV on East Niles Residences. Share the work, the risk, and the upside of a 430-home affordable community in QCT tract 11.04.</p>
-        </article>
-        <article class="p-card">
-          <div class="tag">ALSO OPEN TO</div>
-          <h3>Developer or sponsor</h3>
-          <p>Bring the LIHTC track record, the construction team, or the nonprofit sponsor role. We will talk through how you fit the first 145 units.</p>
+          <h3>Developer/Sponsor</h3>
+          <p>We are looking for a developer/sponsor partner in this project. We will talk through how you fit the first 145 units. If a JV is not a right frame, we are open to another structure.</p>
         </article>
         <article class="p-card">
           <div class="tag">OR YOUR IDEA</div>
-          <h3>Another structure</h3>
-          <p>Fee-dev, option, master-developer, or something we have not named. If you have a better idea, we are open to explore it.</p>
+          <h3>Another structure/Concept</h3>
+          <p>Fee-dev, option, master-developer, or something we have not named. If you have a better idea, plan or concept, we are open to explore it.</p>
         </article>
       </div>
     </div>
@@ -211,99 +192,59 @@
 
   <section class="videos" id="film">
     <div class="wrap">
-      <div class="kicker">See the site</div>
-      <h2>Project films</h2>
+      <h2>Project concepts</h2>
       <div class="rule"></div>
-      <p class="lead">Two short films introduce the deal and the neighborhood. Video 1 is the LIHTC project overview. Video 2 is the location briefing.</p>
+      <p class="lead">Two short videos introduce the project concept and the location.</p>
       <div class="video-grid">
-
         <article class="card" id="video1">
           <div class="thumb" data-youtube="7GIXb2sUaRE">
-            <img src="img/video1.jpg" alt="LIHTC Bakersfield Project" />
+            <img src="https://i.ytimg.com/vi/7GIXb2sUaRE/hqdefault.jpg" alt="LIHTC Bakersfield Project" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/7GIXb2sUaRE/mqdefault.jpg'" />
             <button class="play" type="button" aria-label="Play LIHTC Bakersfield Project"><span>▶</span></button>
           </div>
           <div class="meta">
-            <div class="tag">VIDEO 1 · THE PROJECT</div>
             <h3>LIHTC Bakersfield Project</h3>
-            <p>Phase 1 of a 430-unit affordable master plan. 145 homes. $64.53M TDC. 4% LIHTC + QCT does the heavy lift.</p>
+            <p>Phase 1 — 145 homes. 4% LIHTC + QCT does the heavy lift.</p>
           </div>
         </article>
 
         <article class="card" id="location">
           <div class="thumb" data-youtube="tVPKSYXb_oA">
-            <img src="img/video2.jpg" alt="Location Location Location" />
+            <img src="https://i.ytimg.com/vi/tVPKSYXb_oA/maxresdefault.jpg" alt="Location Location Location" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/tVPKSYXb_oA/hqdefault.jpg'" />
             <button class="play" type="button" aria-label="Play Location Location Location"><span>▶</span></button>
           </div>
           <div class="meta">
-            <div class="tag">VIDEO 2 · THE LOCATION</div>
             <h3>Location Location Location</h3>
-            <p>East Niles / 93306. QCT tract 11.04. Existing transit, a community health center within a mile, commercial to the north and west.</p>
+            <p>The convenience of the site and the neighborhood around it.</p>
           </div>
         </article>
-
       </div>
     </div>
   </section>
 
   <section class="brochure" id="brochure">
-    <img class="bg" src="img/courtyard.jpg" alt="Courtyard" />
+    <img class="bg" src="courtyard.jpg" alt="Courtyard" />
     <div class="veil"></div>
     <div class="inner">
-      <div class="kicker">The briefing</div>
       <h2>Download the brochure</h2>
       <div class="rule"></div>
-      <p>Four-page brief covering the site, entitlements, density math, three phases, and the Phase 1 capital stack — for a developer or sponsor considering a JV.</p>
-      <a class="btn btn-gold" href="East_Niles_Residences_Brochure.pdf" download>Download East Niles Residences Brochure.pdf</a>
+      <p>Four-page brief covering the site, entitlements, density math, three phases, and the Phase 1 capital stack — for a developer or sponsor.</p>
+      <a class="btn btn-gold" href="Bakersfield_LIHTC_Project.pdf" download>Download the brochure</a>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <div class="kicker">Partnership inquiry</div>
-      <h2>Start a JV conversation</h2>
+      <h2>Start a conversation</h2>
       <div class="rule"></div>
-      <p class="lead">Tell us how you would like to work together — joint venture, developer role, sponsor role, or another structure. Confidential. This is not an offer to sell securities.</p>
-      <!-- Hook this form to your email or form service when you go live. -->
-      <form action="#" method="post">
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@firm.com" />
-        </div>
-        <div>
-          <label for="org">Organization</label>
-          <input id="org" name="organization" type="text" placeholder="Firm or sponsor" />
-        </div>
-        <div>
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" type="text" placeholder="(555) 000-0000" />
-        </div>
-        <div class="full">
-          <label for="interest">I am interested in</label>
-          <select id="interest" name="interest">
-            <option value="jv">Exploring a joint venture</option>
-            <option value="developer">A developer role</option>
-            <option value="sponsor">A sponsor role</option>
-            <option value="other">Another structure — I have an idea</option>
-          </select>
-        </div>
-        <div class="full">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="How would you like to work together?"></textarea>
-        </div>
-        <div>
-          <button class="btn btn-gold" type="submit">Send partnership inquiry</button>
-        </div>
-        <p class="note">By submitting, you request a conversation about partnering on East Niles Residences. Subject to qualification and final underwriting.</p>
-      </form>
+      <p class="lead">Tell us how you would like to work together. This is not an offer to sell securities.</p>
+      <div class="jotform-wrap">
+        <script type="text/javascript" src="https://form.jotform.com/jsform/262483767935069"></script>
+      </div>
     </div>
   </section>
 
   <footer>
-    <div><strong>EAST NILES RESIDENCES</strong> · Bakersfield, CA 93306 · HUD QCT 11.04 · Seeking a JV partner</div>
+    <div><strong>BAKERSFIELD LIHTC PROJECT</strong> · Bakersfield, CA 93306 · HUD QCT 11.04 · Seeking a JV partner</div>
     <div>CONFIDENTIAL · PROJECT PAGE</div>
   </footer>
 
