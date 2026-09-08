@@ -110,18 +110,21 @@
 
     .contact {
       background: var(--cream);
-      padding-top: 108px;
-      padding-bottom: 88px;
+      padding: 108px 32px 88px;
     }
+    .contact .wrap { max-width: 1280px; }
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 36px;
+      grid-template-columns: 1.35fr 0.75fr;
+      gap: 28px;
       align-items: start;
     }
+    .col-head { min-height: 126px; }
+    .col-head h2 { font-size: 36px; }
+    .col-head .note { font-size: 14px; color: var(--muted); }
     .plan-frame {
       width: 100%;
-      height: 520px;
+      height: 560px;
       overflow: hidden;
       border: 2px solid var(--slate);
       background: #111;
@@ -132,12 +135,11 @@
       object-fit: cover;
       object-position: center 58%;
     }
-    .plan h2 { font-size: 32px; margin: 16px 0 6px; }
-    .plan .note { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
     .phases {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
+      margin-top: 10px;
     }
     .phase {
       background: var(--slate);
@@ -151,7 +153,7 @@
       border: 1px solid #E6D9C4;
       box-shadow: 0 10px 30px rgba(27,42,50,.08);
       padding: 8px 6px 20px;
-      min-height: 520px;
+      min-height: 560px;
       overflow: hidden;
     }
 
@@ -164,6 +166,7 @@
 
     @media (max-width: 900px) {
       .contact-grid { grid-template-columns: 1fr; }
+      .col-head { min-height: 0; }
       .plan-frame { height: 360px; }
     }
     @media (max-width: 800px) {
@@ -171,7 +174,7 @@
       .hero { height: 620px; }
       .hero h1 { font-size: 36px; }
       .hero .copy, section, .brochure .inner, footer { padding-left: 20px; padding-right: 20px; }
-      .contact { padding-top: 72px; }
+      .contact { padding: 72px 20px 64px; }
       .stats { grid-template-columns: 1fr 1fr; }
       .video-grid { grid-template-columns: 1fr; }
     }
@@ -278,11 +281,13 @@
     <div class="wrap">
       <div class="contact-grid">
         <div class="plan">
+          <div class="col-head">
+            <h2>Master plan</h2>
+            <p class="note">Center Street · 15.16 acres · P1 / P2 / P3 · P4 future reserve</p>
+          </div>
           <div class="plan-frame">
             <img src="total_site.jpg" alt="Master plan of the Bakersfield LIHTC site on Center Street" />
           </div>
-          <h2>Master plan</h2>
-          <p class="note">Center Street · 15.16 acres · P1 / P2 / P3 · P4 future reserve</p>
           <div class="phases">
             <div class="phase">
               <div class="tag">P1</div>
@@ -303,9 +308,11 @@
           </div>
         </div>
         <div>
-          <h2>Start a conversation</h2>
-          <div class="rule"></div>
-          <p class="lead">Tell us how you would like to work together. This is not an offer to sell securities.</p>
+          <div class="col-head">
+            <h2>Start a conversation</h2>
+            <div class="rule"></div>
+            <p class="lead">Tell us how you would like to work together. This is not an offer to sell securities.</p>
+          </div>
           <div class="jotform-wrap">
             <script type="text/javascript" src="https://form.jotform.com/jsform/262483767935069"></script>
           </div>
