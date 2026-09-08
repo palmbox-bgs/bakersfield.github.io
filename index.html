@@ -250,6 +250,11 @@
   </footer>
 
   <script>
+    if (!location.hash) {
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+
     document.querySelectorAll(".thumb[data-youtube]").forEach(function (thumb) {
       var btn = thumb.querySelector(".play");
       if (!btn) return;
