@@ -115,18 +115,37 @@
     }
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 40px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
       align-items: start;
-      margin-top: 8px;
     }
-    .plan img {
+    .plan-frame {
       width: 100%;
+      height: 520px;
+      overflow: hidden;
       border: 2px solid var(--slate);
       background: #111;
     }
-    .plan h2 { font-size: 32px; margin-top: 18px; }
-    .plan .note { font-size: 14px; color: var(--muted); line-height: 1.5; max-width: none; }
+    .plan-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 58%;
+    }
+    .plan h2 { font-size: 32px; margin: 16px 0 6px; }
+    .plan .note { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+    .phases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .phase {
+      background: var(--slate);
+      color: #fff;
+      padding: 16px 16px 18px;
+    }
+    .phase .tag { color: var(--sand); font-size: 11px; letter-spacing: .14em; font-weight: 700; }
+    .phase h3 { font-family: Georgia, serif; font-size: 18px; font-weight: 400; margin: 6px 0 0; color: #fff; }
     .jotform-wrap {
       background: white;
       border: 1px solid #E6D9C4;
@@ -145,6 +164,7 @@
 
     @media (max-width: 900px) {
       .contact-grid { grid-template-columns: 1fr; }
+      .plan-frame { height: 360px; }
     }
     @media (max-width: 800px) {
       .nav { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
@@ -258,9 +278,29 @@
     <div class="wrap">
       <div class="contact-grid">
         <div class="plan">
-          <img src="total_site.jpg" alt="Master plan of the Bakersfield LIHTC site on Center Street" />
+          <div class="plan-frame">
+            <img src="total_site.jpg" alt="Master plan of the Bakersfield LIHTC site on Center Street" />
+          </div>
           <h2>Master plan</h2>
           <p class="note">Center Street · 15.16 acres · P1 / P2 / P3 · P4 future reserve</p>
+          <div class="phases">
+            <div class="phase">
+              <div class="tag">P1</div>
+              <h3>Phase 1 · 145 homes</h3>
+            </div>
+            <div class="phase">
+              <div class="tag">P2</div>
+              <h3>Phase 2</h3>
+            </div>
+            <div class="phase">
+              <div class="tag">P3</div>
+              <h3>Phase 3</h3>
+            </div>
+            <div class="phase">
+              <div class="tag">P4</div>
+              <h3>Future reserve</h3>
+            </div>
+          </div>
         </div>
         <div>
           <h2>Start a conversation</h2>
@@ -275,7 +315,7 @@
   </section>
 
   <footer>
-    <div><strong>BAKERSFIELD LIHTC PROJECT</strong> · Bakersfield, CA</div>
+    <div><strong>BAKERSFIELD LIHTC PROJECT</strong> · Bakersfield, CA 93306 · HUD QCT 11.04 · Seeking a JV partner</div>
     <div>CONFIDENTIAL · PROJECT PAGE</div>
   </footer>
 
