@@ -116,12 +116,13 @@
     .contact-grid {
       display: grid;
       grid-template-columns: 1.35fr 0.75fr;
-      gap: 28px;
+      gap: 28px 32px;
       align-items: start;
     }
-    .col-head { min-height: 126px; }
-    .col-head h2 { font-size: 36px; }
-    .col-head .note { font-size: 14px; color: var(--muted); }
+    .col-head { min-height: 118px; }
+    .col-head h2 { font-size: 36px; margin-bottom: 10px; }
+    .col-head .rule { margin-bottom: 0; }
+    .col-head .lead { font-size: 16px; max-width: none; }
     .plan-frame {
       width: 100%;
       height: 560px;
@@ -135,11 +136,19 @@
       object-fit: cover;
       object-position: center 58%;
     }
+    .plan-meta { margin-top: 16px; }
+    .plan-meta h3 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-size: 28px;
+      color: var(--slate);
+      margin-bottom: 6px;
+    }
+    .plan-meta .note { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
     .phases {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin-top: 10px;
     }
     .phase {
       background: var(--slate);
@@ -282,35 +291,37 @@
       <div class="contact-grid">
         <div class="plan">
           <div class="col-head">
-            <h2>Master plan</h2>
-            <p class="note">Center Street · 15.16 acres · P1 / P2 / P3 · P4 future reserve</p>
+            <h2>Start a conversation</h2>
+            <div class="rule"></div>
           </div>
           <div class="plan-frame">
             <img src="total_site.jpg" alt="Master plan of the Bakersfield LIHTC site on Center Street" />
           </div>
-          <div class="phases">
-            <div class="phase">
-              <div class="tag">P1</div>
-              <h3>Phase 1 · 145 homes</h3>
-            </div>
-            <div class="phase">
-              <div class="tag">P2</div>
-              <h3>Phase 2</h3>
-            </div>
-            <div class="phase">
-              <div class="tag">P3</div>
-              <h3>Phase 3</h3>
-            </div>
-            <div class="phase">
-              <div class="tag">P4</div>
-              <h3>Future reserve</h3>
+          <div class="plan-meta">
+            <h3>Master plan</h3>
+            <p class="note">Center Street · 15.16 acres · P1 / P2 / P3 · P4 future reserve</p>
+            <div class="phases">
+              <div class="phase">
+                <div class="tag">P1</div>
+                <h3>Phase 1 · 145 homes</h3>
+              </div>
+              <div class="phase">
+                <div class="tag">P2</div>
+                <h3>Phase 2</h3>
+              </div>
+              <div class="phase">
+                <div class="tag">P3</div>
+                <h3>Phase 3</h3>
+              </div>
+              <div class="phase">
+                <div class="tag">P4</div>
+                <h3>Future reserve</h3>
+              </div>
             </div>
           </div>
         </div>
         <div>
           <div class="col-head">
-            <h2>Start a conversation</h2>
-            <div class="rule"></div>
             <p class="lead">Tell us how you would like to work together. This is not an offer to sell securities.</p>
           </div>
           <div class="jotform-wrap">
