@@ -45,15 +45,40 @@
     .hero .sub { color: #E8D5B5; font-size: 18px; margin-bottom: 10px; }
     .hero .ask { color: #fff; font-size: 17px; line-height: 1.5; max-width: 680px; margin: 0 0 22px; }
 
-    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: 13px 22px; border-radius: 2px; border: 0; cursor: pointer;
-      font-size: 13px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; font-family: inherit;
-    }
-    .btn-gold { background: var(--sand); color: var(--slate); }
-    .btn-gold:hover { background: #d4b584; }
-    .btn-ghost { background: transparent; color: white; border: 1px solid rgba(255,255,255,.45); }
-    .btn-ghost:hover { border-color: var(--sand); color: var(--sand); }
+   .btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 250px;
+  padding: 13px 22px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: inherit;
+  text-align: center;
+  box-sizing: border-box;
+}
+.btn-gold {
+  background: var(--sand);
+  color: var(--slate);
+  border-color: var(--sand);
+}
+.btn-gold:hover { background: #d4b584; border-color: #d4b584; }
+.btn-ghost {
+  background: transparent;
+  color: white;
+  border-color: rgba(255,255,255,.45);
+}
+.btn-ghost:hover { border-color: var(--sand); color: var(--sand); }
 
     .stats {
       background: var(--slate); color: white;
