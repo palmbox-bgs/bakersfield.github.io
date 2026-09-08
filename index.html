@@ -193,7 +193,7 @@
 
   <section class="videos" id="film">
     <div class="wrap">
-      <h2>Project Concept</h2>
+      <h2>Project concepts</h2>
       <div class="rule"></div>
       <p class="lead">Two short videos introduce the project concept and the location.</p>
       <div class="video-grid">
@@ -250,10 +250,36 @@
   </footer>
 
   <script>
-    if (!location.hash) {
-      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    function cleanUrl() {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+
+    function scrollToId(id) {
+      var target = document.getElementById(id);
+      if (!target) return false;
+      target.scrollIntoView({ behavior: "smooth" });
+      cleanUrl();
+      return true;
+    }
+
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
+    if (location.hash) {
+      var startId = location.hash.slice(1);
+      window.addEventListener("load", function () {
+        scrollToId(startId);
+      });
+    } else {
       window.scrollTo(0, 0);
     }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        var id = this.getAttribute("href").slice(1);
+        if (!id) return;
+        if (scrollToId(id)) e.preventDefault();
+      });
+    });
 
     document.querySelectorAll(".thumb[data-youtube]").forEach(function (thumb) {
       var btn = thumb.querySelector(".play");
