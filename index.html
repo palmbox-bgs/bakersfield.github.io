@@ -108,13 +108,30 @@
     .brochure h2 { color: white; }
     .brochure p { color: #E8D5B5; font-size: 17px; line-height: 1.6; max-width: 560px; margin-bottom: 24px; }
 
-    .contact { background: var(--ivory); }
+    .contact {
+      background: var(--cream);
+      padding-top: 108px;
+      padding-bottom: 88px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 8px;
+    }
+    .plan img {
+      width: 100%;
+      border: 2px solid var(--slate);
+      background: #111;
+    }
+    .plan h2 { font-size: 32px; margin-top: 18px; }
+    .plan .note { font-size: 14px; color: var(--muted); line-height: 1.5; max-width: none; }
     .jotform-wrap {
-      margin-top: 28px;
       background: white;
       border: 1px solid #E6D9C4;
       box-shadow: 0 10px 30px rgba(27,42,50,.08);
-      padding: 12px 8px 24px;
+      padding: 8px 6px 20px;
       min-height: 520px;
       overflow: hidden;
     }
@@ -126,11 +143,15 @@
     }
     footer strong { color: var(--sand); font-weight: 700; }
 
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 800px) {
       .nav { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
       .hero { height: 620px; }
       .hero h1 { font-size: 36px; }
       .hero .copy, section, .brochure .inner, footer { padding-left: 20px; padding-right: 20px; }
+      .contact { padding-top: 72px; }
       .stats { grid-template-columns: 1fr 1fr; }
       .video-grid { grid-template-columns: 1fr; }
     }
@@ -235,18 +256,27 @@
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <h2>Start a conversation</h2>
-      <div class="rule"></div>
-      <p class="lead">Tell us how you would like to work together. This is not an offer to sell securities.</p>
-      <div class="jotform-wrap">
-        <script type="text/javascript" src="https://form.jotform.com/jsform/262483767935069"></script>
+      <div class="contact-grid">
+        <div class="plan">
+          <img src="total_site.jpg" alt="Master plan of the Bakersfield LIHTC site on Center Street" />
+          <h2>Master plan</h2>
+          <p class="note">Center Street · 15.16 acres · P1 / P2 / P3 · P4 future reserve</p>
+        </div>
+        <div>
+          <h2>Start a conversation</h2>
+          <div class="rule"></div>
+          <p class="lead">Tell us how you would like to work together. This is not an offer to sell securities.</p>
+          <div class="jotform-wrap">
+            <script type="text/javascript" src="https://form.jotform.com/jsform/262483767935069"></script>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <div><strong>BAKERSFIELD LIHTC PROJECT</strong> · Bakersfield, CA </div>
-    <div></div>
+    <div><strong>BAKERSFIELD LIHTC PROJECT</strong> · Bakersfield, CA</div>
+    <div>CONFIDENTIAL · PROJECT PAGE</div>
   </footer>
 
   <script>
